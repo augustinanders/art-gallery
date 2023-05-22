@@ -1,6 +1,11 @@
-# New Project
+# Art Garllery
 
-This project was created from the neue fische next template.
+This project is developed by [`@augustinanders`](https://github.com/augustinanders) and [`@pacoschwab`](https://github.com/pacoschwab). It has been realised as a recap-project after graduating our web-dev bootcamp [`@neuefische`](https://github.com/neuefische) 
+
+## Wireframes
+provided by neuefische:
+
+![wireframes excalidraw](https://github.com/augustinanders/art-gallery/assets/121796762/d90f2ac9-67f8-465a-abe5-72efe9b8222b)
 
 ## Development
 
