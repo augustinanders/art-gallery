@@ -1,6 +1,4 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import useSWR, { SWRConfig } from "swr";
 
 export default function Home() {
   return (
