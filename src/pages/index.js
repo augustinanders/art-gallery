@@ -1,9 +1,9 @@
-import useSWR, { SWRConfig } from "swr";
+import ArtPieces from "@/components/ArtPieces";
 
 export default function Home() {
   return (
     <>
-      <h1>Art Gallery</h1>
+      <ArtPieces />
     </>
   );
 }
