@@ -1,6 +1,6 @@
-import "@/styles/globals.css";
+import GlobalStyle from "../styles";
 import useSWR from "swr";
-import useStore from "@/useStore";
+import useStore from "../useStore";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
