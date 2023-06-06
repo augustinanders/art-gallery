@@ -1,6 +1,7 @@
 # Art Garllery
 
-This project is developed by [`@augustinanders`](https://github.com/augustinanders) and [`@pacoschwab`](https://github.com/pacoschwab). It has been realised as a recap-project after graduating our web-dev bootcamp [`@neuefische`](https://github.com/neuefische).
+This project is developed by [`@augustinanders`](https://github.com/augustinanders) and [`@pacoschwab`](https://github.com/pacoschwab). It has been realised as a recap-project after graduating our web-dev bootcamp [`@neuefische`](https://github.com/neuefische). 
+
 
 [`instructions`](https://github.com/neuefische/web-exercises/blob/main/sessions/recap-project-5/art-gallery-app/README.md)
 
