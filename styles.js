@@ -4,11 +4,8 @@ export default createGlobalStyle`
   *,
   *::before,
   *::after {
-    box-sizing: border-box;
-  }
-
-  body {
+    padding: 0;
     margin: 0;
-    font-family: system-ui;
+    box-sizing: border-box;
   }
 `;
