@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ArtPiecePreview from "../ArtPiecePreview";
+import ArtPiecePreview from ".";
 
 test("Each art piece's image, artist and name is displayed", () => {
   const piece = {

@@ -20,7 +20,7 @@ const fetcher = async (url) => {
 
 export default function App({ Component, pageProps }) {
   const setArtPieces = useStore((state) => state.setArtPieces);
-  const { data, error, isLoading } = useSWR(
+  const { error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art",
     fetcher,
     {
@@ -29,6 +29,9 @@ export default function App({ Component, pageProps }) {
       },
     }
   );
+
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
 
   return <Component {...pageProps} />;
 }
