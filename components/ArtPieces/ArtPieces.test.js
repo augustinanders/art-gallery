@@ -1,4 +1,4 @@
-import ArtPieces from "./index";
+import ArtPieces from ".";
 import { render, screen } from "@testing-library/react";
 import useStore from "../../useStore";
 
