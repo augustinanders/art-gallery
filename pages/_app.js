@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import useStore from "../useStore";
+import Layout from "../components/Layout";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -33,5 +34,12 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <GlobalStyle />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
+  );
 }
