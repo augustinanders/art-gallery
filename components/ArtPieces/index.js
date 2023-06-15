@@ -10,10 +10,11 @@ export default function ArtPieces() {
         return (
           <ArtPiecePreview
             key={piece.slug}
-            alt={piece.name}
+            slug={piece.slug}
             src={piece.imageSource}
             name={piece.name}
             artist={piece.artist}
+            alt={piece.name}
           />
         );
       })}

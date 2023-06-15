@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ArtPiecePreview from ".";
 
-test("Each art piece's image, artist and name is displayed", () => {
+test("Each art piece's image, artist and name are displayed", () => {
   const piece = {
     slug: "the-creation-of-adam",
     name: "The Creation of Adam",
