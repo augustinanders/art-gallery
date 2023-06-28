@@ -5,7 +5,7 @@ const useStore = create((set) => ({
   setArtPieces: (data) => set({ artPieces: data }),
 
   artPiecesInfo: [],
-  setIsFavourite: (slug) =>
+  /*  setIsFavourite: (slug) =>
     set((state) => {
       const artPiecesInfo = state.artPiecesInfo.map((artPiece) => {
         if (artPiece.slug === slug) {
@@ -17,7 +17,7 @@ const useStore = create((set) => ({
         return artPiece;
       });
       return { artPiecesInfo };
-    }),
+    }), */
 }));
 
 export default useStore;
