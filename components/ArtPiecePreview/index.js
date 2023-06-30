@@ -10,11 +10,7 @@ export default function ArtPiecePreview({ slug, src, name, artist, alt }) {
           <Image alt={alt} src={src} width={100} height={100} />
           {name} by {artist}
         </Link>
-        <FavouriteButton
-          onClick={() => {
-            setIsFavourite(slug);
-          }}
-        />
+        <FavouriteButton slug={slug} />
       </li>
     </>
   );

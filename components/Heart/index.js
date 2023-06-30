@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useStore from "@/useStore";
 
 export default function Heart({ isFavourite }) {
   const StyledHeart = styled.svg`

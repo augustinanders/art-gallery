@@ -5,19 +5,24 @@ const useStore = create((set) => ({
   setArtPieces: (data) => set({ artPieces: data }),
 
   artPiecesInfo: [],
-  /*  setIsFavourite: (slug) =>
+  setIsFavourite: (slug) =>
     set((state) => {
-      const artPiecesInfo = state.artPiecesInfo.map((artPiece) => {
-        if (artPiece.slug === slug) {
-          return {
-            ...artPiece,
-            isFavourite: !artPiece.isFavourite,
-          };
-        }
-        return artPiece;
-      });
-      return { artPiecesInfo };
-    }), */
+      const isSlugInArtPiecesInfo = state.artPiecesInfo.find(
+        (artPieceInfo) => artPieceInfo.slug === slug
+      );
+      if (isSlugInArtPiecesInfo) {
+        return {
+          artPiecesInfo: state.artPiecesInfo.map((artPieceInfo) =>
+            artPieceInfo.slug === slug
+              ? { ...artPieceInfo, isFavourite: !artPieceInfo.isFavourite }
+              : artPieceInfo
+          ),
+        };
+      }
+      return {
+        artPiecesInfo: [...state.artPiecesInfo, { slug, isFavourite: true }],
+      };
+    }),
 }));
 
 export default useStore;
