@@ -1,9 +1,9 @@
 import Heart from "../Heart";
-import useStore from "@/useStore";
+import useLocalStore from "@/Stores/useLocalStore";
 
 export default function FavouriteButton({ slug }) {
-  const setIsFavourite = useStore((state) => state.setIsFavourite);
-  const artPiecesInfo = useStore((state) => state.artPiecesInfo);
+  const setIsFavourite = useLocalStore((state) => state.setIsFavourite);
+  const artPiecesInfo = useLocalStore((state) => state.artPiecesInfo);
 
   const CurrentArtPieceInfo = artPiecesInfo.find((artPieceInfo) => {
     return artPieceInfo.slug === slug;
