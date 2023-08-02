@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import FavouriteButton from "../FavouriteButton";
-import styled from "styled-components";
 
 export default function ArtPiecePreview({ slug, src, name, artist, alt }) {
   return (

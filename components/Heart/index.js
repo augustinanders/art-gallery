@@ -1,17 +1,6 @@
-import styled from "styled-components";
+import StyledHeart from "@/styles/StyledHeart";
 
 export default function Heart({ isFavourite }) {
-  const StyledHeart = styled.svg`
-    width: 20px;
-    height: 20px;
-
-    path {
-      stroke: black;
-      fill: ${({ isFilled }) => (isFilled ? "black" : "transparent")};
-    }
-    stroke-width: 0.5;
-  `;
-
   return (
     <StyledHeart
       isFilled={isFavourite}
