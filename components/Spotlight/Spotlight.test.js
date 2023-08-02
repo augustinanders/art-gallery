@@ -1,8 +1,8 @@
 import Spotlight from ".";
 import { render, screen } from "@testing-library/react";
-import useStore from "../../useStore";
+import useStore from "../../Stores/useStore";
 
-jest.mock("../../useStore");
+jest.mock("../../Stores/useStore");
 
 test("the art piece image and artist are displayed", () => {
   useStore.mockReturnValueOnce([
@@ -22,4 +22,19 @@ test("the art piece image and artist are displayed", () => {
     "The Creation of Adam"
   );
   expect(screen.getByText(/Michelangelo/)).toBeInTheDocument();
+});
+
+test("the FavoriteButton component is rendered", () => {
+  useStore.mockReturnValueOnce([
+    {
+      slug: "the-creation-of-adam",
+      name: "The Creation of Adam",
+      artist: "Michelangelo",
+      imageSource: "/images/the-creation-of-adam.jpg",
+    },
+  ]);
+
+  render(<Spotlight />);
+
+  expect(screen.getByRole("button")).toBeInTheDocument();
 });

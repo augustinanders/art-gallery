@@ -1,6 +1,7 @@
-import useStore from "@/useStore";
+import useStore from "@/Stores/useStore";
 import Image from "next/image";
 import Link from "next/link";
+import FavouriteButton from "../FavouriteButton";
 
 export default function ArtPieceDetails({ slug }) {
   const pieces = useStore((state) => state.artPieces);
@@ -22,6 +23,7 @@ export default function ArtPieceDetails({ slug }) {
           width={100}
           height={100}
         />
+        <FavouriteButton slug={slug} />
         <figcaption>
           <h3>
             {piece.name} by {piece.artist}

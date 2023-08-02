@@ -1,4 +1,4 @@
-import useStore from "@/useStore";
+import useStore from "@/Stores/useStore";
 import ArtPiecePreview from "../ArtPiecePreview";
 
 export default function ArtPieces() {

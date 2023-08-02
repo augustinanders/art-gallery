@@ -1,8 +1,8 @@
 import ArtPieces from ".";
 import { render, screen } from "@testing-library/react";
-import useStore from "../../useStore";
+import useStore from "../../Stores/useStore";
 
-jest.mock("../../useStore");
+jest.mock("../../Stores/useStore");
 
 test("renders all art pieces as a list", () => {
   useStore.mockReturnValueOnce([
