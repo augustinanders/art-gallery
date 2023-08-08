@@ -8,3 +8,10 @@ test("Heart Icon is rendered in the Button", () => {
   const heartIcon = screen.getByTestId("heart-icon");
   expect(heartIcon).toBeInTheDocument();
 });
+
+/* test("Heart Icon is filled when isFilled is true", () => {
+  render(<Heart isFilled={true} />);
+
+  const heartIcon = screen.getByTestId("heart-icon");
+  expect(heartIcon).toHaveAttribute("isFilled");
+}); */

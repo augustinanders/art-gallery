@@ -1,6 +1,6 @@
 import ArtPieces from ".";
 import { render, screen } from "@testing-library/react";
-import useStore from "../../Stores/useStore";
+import useStore from "@/Stores/useStore";
 
 jest.mock("../../Stores/useStore");
 
