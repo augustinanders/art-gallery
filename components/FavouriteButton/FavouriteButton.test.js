@@ -1,25 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import FavouriteButton from ".";
-import useLocalStore from "@/Stores/useLocalStore";
+import useSetUpMock from "@/hooks/useSetUpMock";
 
 jest.mock("../../Stores/useLocalStore");
 
-function setupMock() {
-  useLocalStore.mockImplementation((selector) => {
-    const state = {
-      artPiecesInfo: [
-        {
-          slug: "the-creation-of-adam",
-          isFavourite: true,
-        },
-      ],
-    };
-    return selector(state);
-  });
-}
-
 test("Heart Icon is rendered in the Button", () => {
-  setupMock();
+  useSetUpMock();
 
   render(<FavouriteButton slug="the-creation-of-adam" />);
 
@@ -27,10 +13,8 @@ test("Heart Icon is rendered in the Button", () => {
   expect(heartIcon).toBeInTheDocument();
 });
 
-import userEvent from "@testing-library/user-event";
-
 test("SVG changes fill color on click", () => {
-  setupMock();
+  useSetUpMock();
 
   render(<FavouriteButton slug="the-creation-of-adam" />);
 
