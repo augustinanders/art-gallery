@@ -4,7 +4,7 @@ import useLocalStore from "@/Stores/useLocalStore";
 
 jest.mock("../../Stores/useLocalStore");
 
-test("Heart Icon is rendered in the Button", () => {
+function setupMock() {
   useLocalStore.mockImplementation((selector) => {
     const state = {
       artPiecesInfo: [
@@ -12,14 +12,14 @@ test("Heart Icon is rendered in the Button", () => {
           slug: "the-creation-of-adam",
           isFavourite: true,
         },
-        {
-          slug: "the-scream",
-          isFavourite: false,
-        },
       ],
     };
-    return selector(state); // Return the selected part of the state
+    return selector(state);
   });
+}
+
+test("Heart Icon is rendered in the Button", () => {
+  setupMock();
 
   render(<FavouriteButton slug="the-creation-of-adam" />);
 
@@ -30,21 +30,7 @@ test("Heart Icon is rendered in the Button", () => {
 import userEvent from "@testing-library/user-event";
 
 test("SVG changes fill color on click", () => {
-  useLocalStore.mockImplementation((selector) => {
-    const state = {
-      artPiecesInfo: [
-        {
-          slug: "the-creation-of-adam",
-          isFavourite: true,
-        },
-        {
-          slug: "the-scream",
-          isFavourite: false,
-        },
-      ],
-    };
-    return selector(state); // Return the selected part of the state
-  });
+  setupMock();
 
   render(<FavouriteButton slug="the-creation-of-adam" />);
 
