@@ -1,7 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import useStore from "@/Stores/useStore";
-import Layout from "../components/Layout";
+import Layout from "@/components/Layout";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
