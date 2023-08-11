@@ -22,6 +22,28 @@ const useLocalStore = createLocalStorageStore((set) => ({
         artPiecesInfo: [...state.artPiecesInfo, { slug, isFavourite: true }],
       };
     }),
+  addComment: (slug, comment) => {
+    set((state) => {
+      const isSlugInArtPiecesInfo = state.artPiecesInfo.find(
+        (artPieceInfo) => artPieceInfo.slug === slug
+      );
+      if (isSlugInArtPiecesInfo) {
+        return {
+          artPiecesInfo: state.artPiecesInfo.map((artPieceInfo) =>
+            artPieceInfo.slug === slug
+              ? {
+                  ...artPieceInfo,
+                  comments: [...artPieceInfo.comments, comment],
+                }
+              : artPieceInfo
+          ),
+        };
+      }
+      return {
+        artPiecesInfo: [...state.artPiecesInfo, { slug, comments: [comment] }],
+      };
+    });
+  },
 }));
 
 export default useLocalStore;
