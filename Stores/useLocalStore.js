@@ -27,20 +27,25 @@ const useLocalStore = createLocalStorageStore((set) => ({
       const isSlugInArtPiecesInfo = state.artPiecesInfo.find(
         (artPieceInfo) => artPieceInfo.slug === slug
       );
+      const date = new Date();
+      console.log(date);
       if (isSlugInArtPiecesInfo) {
         return {
           artPiecesInfo: state.artPiecesInfo.map((artPieceInfo) =>
             artPieceInfo.slug === slug
               ? {
                   ...artPieceInfo,
-                  comments: [...artPieceInfo.comments, comment],
+                  comments: [...artPieceInfo.comments, { comment, date }],
                 }
               : artPieceInfo
           ),
         };
       }
       return {
-        artPiecesInfo: [...state.artPiecesInfo, { slug, comments: [comment] }],
+        artPiecesInfo: [
+          ...state.artPiecesInfo,
+          { slug, comments: [{ comment, date }] },
+        ],
       };
     });
   },
@@ -68,3 +73,40 @@ function createLocalStorageStore(initialStore, name) {
 
   return useStore;
 }
+
+/* const useTimeFormatter = (count) => {
+  const formattedTime = (time) => {
+    return time < 10 ? `0${time}` : time;
+  };
+
+  const minutes = Math.floor(count / 60);
+  const seconds = count % 60;
+  const displayTime = `${formattedTime(minutes)}:${formattedTime(seconds)}`;
+
+  return {
+    displayTime,
+  };
+};
+
+export default useTimeFormatter; */
+
+/*  const useLocalStore = createLocalStorageStore(
+  (set) => ({
+    storedTimes: [],
+    addStoredTime: (retentionCount) => {
+      const now = new Date();
+      const date = now.toISOString().slice(0, 10);
+      const time = now.toTimeString().slice(0, 8);
+      set((state) => ({
+        storedTimes: [
+          ...state.storedTimes,
+          {
+            id: uuidv4(),
+            date: date,
+            time: time,
+            retentionCount,
+            isEditingRetentionTime: false,
+          },
+        ],
+      }));
+    } */
