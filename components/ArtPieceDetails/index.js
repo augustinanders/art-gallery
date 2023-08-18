@@ -40,11 +40,12 @@ export default function ArtPieceDetails({ slug }) {
       <h3>Comments</h3>
       <ul>
         {artPieceInfo?.comments?.map((comment, index) => {
-          console.log(comment.date);
+          const parsedDate = new Date(comment.date);
+          console.log(typeof parsedDate, parsedDate);
           return (
             <li key={index}>
-              {comment.comment}, {comment.date.toLocaleDateString("de-DE")},{" "}
-              {comment.date.toLocaleTimeString("de-DE", {
+              {comment.comment}, {parsedDate.toLocaleDateString("de-DE")},{" "}
+              {parsedDate.toLocaleTimeString("de-DE", {
                 timeStyle: "short",
               })}
             </li>
@@ -55,9 +56,3 @@ export default function ArtPieceDetails({ slug }) {
     </>
   );
 }
-
-/* var dateWithouthSecond = new Date();
-dateWithouthSecond.toLocaleTimeString([], {
-  hour: "2-digit",
-  minute: "2-digit",
-}); */
