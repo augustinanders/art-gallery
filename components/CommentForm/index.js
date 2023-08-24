@@ -2,15 +2,27 @@ import useLocalStore from "@/Stores/useLocalStore";
 
 export default function CommentForm({ slug }) {
   const addComment = useLocalStore((state) => state.addComment);
+  const commentInput = document.getElementById("commentInput");
+
   const handleSubmitComment = (event, addComment) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-    addComment(slug, data.commentInput);
-    const commentInput = document.getElementById("commentInput");
+    addComment(slug, commentInput.value);
     commentInput.value = "";
+    handleChange();
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      handleSubmitComment(event, addComment);
+    }
+  };
+
+  const handleChange = () => {
+    const characterCount = document.getElementById("characterCount");
+    characterCount.innerHTML = `${
+      250 - commentInput?.value.length
+    } characters left`;
+  };
   return (
     <form
       onSubmit={(event) => {
@@ -25,10 +37,13 @@ export default function CommentForm({ slug }) {
         required
         maxLength="250"
         rows="5"
+        onKeyDown={(event) => {
+          handleKeyDown(event);
+        }}
+        onChange={handleChange}
       />
+      <p id="characterCount">250 characters left</p>
       <button type="submit">Submit</button>
     </form>
   );
 }
-
-// characters left: {250 - commentInput.value.length}

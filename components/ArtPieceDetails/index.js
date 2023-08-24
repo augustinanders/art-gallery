@@ -1,17 +1,13 @@
 import useStore from "@/Stores/useStore";
-import useLocalStore from "@/Stores/useLocalStore";
 import Image from "next/image";
 import Link from "next/link";
 import FavouriteButton from "../FavouriteButton";
 import CommentForm from "../CommentForm";
+import Comments from "../Comments";
 
 export default function ArtPieceDetails({ slug }) {
   const pieces = useStore((state) => state.artPieces);
   const piece = pieces.find((piece) => piece.slug === slug);
-  const artPiecesInfo = useLocalStore((state) => state.artPiecesInfo);
-  const artPieceInfo = artPiecesInfo.find(
-    (artPieceInfo) => artPieceInfo.slug === slug
-  );
 
   if (!piece) {
     return <h2>Piece not found</h2>;
@@ -38,20 +34,7 @@ export default function ArtPieceDetails({ slug }) {
         </figcaption>
       </figure>
       <h3>Comments</h3>
-      <ul>
-        {artPieceInfo?.comments?.map((comment, index) => {
-          const parsedDate = new Date(comment.date);
-          console.log(typeof parsedDate, parsedDate);
-          return (
-            <li key={index}>
-              {comment.comment}, {parsedDate.toLocaleDateString("de-DE")},{" "}
-              {parsedDate.toLocaleTimeString("de-DE", {
-                timeStyle: "short",
-              })}
-            </li>
-          );
-        })}
-      </ul>
+      <Comments slug={slug} />
       <CommentForm slug={slug} />
     </>
   );
